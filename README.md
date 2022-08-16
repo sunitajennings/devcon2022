@@ -65,7 +65,7 @@ Use the values below:
 | --- | ----------- | -------- | -------- |
 | Exercise 1 | MX Bank | your-first-name.your-last-name | Pa$$word |
 | Exercise 2 | MX Bank | talk to Sunita or Candice | challenge |
-| Exercise 3 | MX Bank (OAuth) | n/a | n/a | 
+| Exercise 3 (_coming soon_)|  |  |  | 
 
 
 ## References
