@@ -33,15 +33,11 @@ How should you (AwesomeMoney) handle this and/or communicate the situation back 
 
 ## Your turn!
 
-For the rest of the session, here are three more examples where something goes wrong. Remember, for each, you'll want to:
+For the rest of the session, you'll work through three more examples as we did above. The three exercises are independent of each other, and can be solved in any order. 
 
-1. identify the error condition (in code), 
-2. make a choice about logging or alerting, and 
-3. react to the condition in a way that best supports your user in their goal.
+We'll take the last 15 minutes of the session to share answers and solutions.
 
-The three exercises are independent of each other, and can be solved in any order. We'll take the last 15 minutes of the session to share answers and solutions.
-
-Here's how you'll get set up for exercise1 as an example:
+Here's how you'll get set up for exercise1:
 
 ```
 clone this repository
@@ -56,16 +52,11 @@ cd exercise1/backend
 npm i
 npm start
 ```
-The repository is already configured with a client id & api key for this workshop. We will create new users for each of you.
+The repository is already configured with a client id & api key for this workshop. We will provide new users for each of you.
 
 > (The client id and user data will be deactivated shortly after this session. If you wish to explore these exercises after the session, see [this link](http://placeholder) for instructions.
 
 Each exercise has its own folder, and each folder has a copy of a frontend app & backend server. You'll run both of these in separate terminals, but you can only run one exercise at a time (unless you run them on different ports)
-
-When you run the app, you'll be prompted to do the following:
-1. Launch the widget (this widget handles connections)
-2. Search for & select an institution
-3. Enter credentials
 
 Use the values below:
 
