@@ -39,14 +39,15 @@ We'll take the last 15 minutes of the session to share answers and solutions.
 
 Here's how you'll get set up for exercise1:
 
+1. clone this repository
+
 ```
-clone this repository
 cd devcon2022
 cd exercise1/frontend
 npm i 
 npm start
 ```
-and, in a second terminal:
+2. in a second terminal:
 ```
 cd exercise1/backend
 npm i
