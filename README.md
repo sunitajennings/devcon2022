@@ -29,7 +29,7 @@ How should you (AwesomeMoney) handle this and/or communicate the situation back 
 - the embedded widget handles the connection to the institution
 - the widget will send postMessages back with data and/or errors and/or other information about the connection and user data.
 - in this app, all postmessages are reported to the console like this:
-`console.log('MX PostMessage: ', event)`
+`console.log('MX PostMessage: ', event.type, event.metadata)`
 
 ## Your turn!
 
@@ -37,19 +37,19 @@ For the rest of the session, you'll work through three more examples as we did a
 
 We'll take the last 15 minutes of the session to share answers and solutions.
 
-Here's how you'll get set up for exercise1:
+Here's how you'll get set up:
 
 1. clone this repository
 
 ```
 cd devcon2022
-cd exercise1/frontend
+cd awesomemoney/frontend
 npm i 
 npm start
 ```
 2. in a second terminal:
 ```
-cd exercise1/backend
+cd awesomemoney/backend
 npm i
 npm start
 ```
@@ -57,16 +57,19 @@ The repository is already configured with a client id & api key for this worksho
 
 > (The client id and user data will be deactivated shortly after this session. If you wish to explore these exercises after the session, see [this link](http://placeholder) for instructions.
 
-Each exercise has its own folder, and each folder has a copy of a frontend app & backend server. You'll run both of these in separate terminals, but you can only run one exercise at a time (unless you run them on different ports)
+When you run the app, you'll need to provide a username to initiate the verification flow. An AwesomeMoney user will be created for you with that id.
+
+Use `betty.[yourfirstname]` as the username. This username MUST be unique.
+You can delete this user and recreate it with each exercise. OR you can come up with a unique name of your own.
+
+During the verification flow, you'll need to search for an institution then enter credentials. Use the values below.
 
 Use the values below:
-
 |     | Institution | Username | Password |
 | --- | ----------- | -------- | -------- |
 | Exercise 1 | MX Bank | your-first-name.your-last-name | Pa$$word |
 | Exercise 2 | MX Bank | talk to Sunita or Candice | challenge |
 | Exercise 3 (_coming soon_)|  |  |  | 
-
 
 ## References
 https://docs.mx.com/testing/guides/testing
