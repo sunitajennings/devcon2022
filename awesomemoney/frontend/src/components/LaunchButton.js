@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import MXConnectWidget from './MXConnectWidget'
 import { Button } from '@kyper/button'
 import { ChevronRight } from '@kyper/icon/ChevronRight'
+import { CONNECTION_STATUS } from '../constants/Connection'
 import Header from "./Header"
 import { Table } from '@kyper/table'
 import { Dots } from '@kyper/progressindicators'
