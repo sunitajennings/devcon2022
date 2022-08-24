@@ -166,6 +166,7 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
             latestUsers.length > 0 && (
               <div>
                 <div className='flex-align flex-center mt-48 mb-8'>
+                  <hr />
                   <Text as="ParagraphSmall" color="primary" tag="h3">
                     {`Previously Created Users (${latestUsers.length} of ${MAX_USERS})`}
                   </Text>
