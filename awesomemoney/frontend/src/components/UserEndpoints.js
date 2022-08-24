@@ -8,7 +8,12 @@ function UserEndpoints({ userGuid, memberGuid }) {
   return (
     <div className="mb-48">
       <Header />
-      <Table className='guid-table mt-48' >
+      <div className="mt-16 mb-24">
+        <Text as="Paragraph" color="primary" tag="p">
+          Here's the user and member guids for this connection.
+        </Text>
+      </div>
+      <Table className='guid-table mt-20' >
         <tbody>
           <tr>
             <td>
@@ -30,7 +35,7 @@ function UserEndpoints({ userGuid, memberGuid }) {
       </Table>
       <div className="mt-16 mb-48">
         <Text as="Paragraph" color="primary" tag="p">
-          Nice work! You have set up a user and member, and can now make the following requests:
+          We ran instant account verification to retrieve account and routing numbers associated with this connection.
         </Text>
       </div>
       <Verification userGuid={userGuid} memberGuid={memberGuid} />

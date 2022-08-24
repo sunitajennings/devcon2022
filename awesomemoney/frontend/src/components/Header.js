@@ -8,7 +8,7 @@ function Header() {
       </Text>
       <div className='mt-8 pb-16'>
         <Text as="Paragraph" color="primary" tag="p">
-          Do awesome things!
+          Do awesome things with your money.
         </Text>
       </div>
     </div>

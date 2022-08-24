@@ -1,12 +1,18 @@
-import { useState } from 'react';
-import MXEndpoint from "./MXEndpoint";
+import { useEffect, useState } from 'react';
+import VerificationResult from "./VerificationResult";
 
-function Verification({userGuid, memberGuid}) {
+function Verification({ userGuid, memberGuid }) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [accountNumbers, setAccountNumbers] = useState([]);
   const [jsonData, setJsonData] = useState(null);
   const [status, setStatus] = useState(2);
+
+  useEffect(() => {
+    if (!isLoading && (!accountNumbers || accountNumbers.length < 1) && userGuid && memberGuid) {
+      loadAccountNumbers()
+    }
+  })
 
   const loadAccountNumbers = async () => {
     setIsLoading(true);
@@ -29,27 +35,20 @@ function Verification({userGuid, memberGuid}) {
         setError({
           code: '400',
           type: 'Bad Request',
-          message: 'You dont have access to this premium feature.',
+          message: 'You don\'t have access to this premium feature.',
           link: 'https://docs.mx.com/api#verification_mx_widgets'
         })
       });
   }
 
   return (
-    <MXEndpoint
+    <div>
+      <VerificationResult
         docsLink="https://docs.mx.com/api#verification_mx_widgets"
-        error={error}
-        finalDataUrl="/users/{user_guid}/members/{member_guid}/account_numbers"
-        jobType="Verification"
-        status={status}
-        showNotice={true}
-        title="Account Verification"
-        requestType="POST"
-        requestUrl="/users/{user_guid}/members/{member_guid}/verify"
-        isLoading={isLoading}
-        subText="Account verification allows you to access account and routing numbers for demand deposit accounts associated with a particular member."
-        onAction={loadAccountNumbers}
         jsonData={jsonData}
+        error={error}
+        isLoading={isLoading}
+        status={status}
         tableData={{
           headers: ['Account Number', 'Routing Number'],
           rowData: accountNumbers.map(accountNumber => {
@@ -62,7 +61,9 @@ function Verification({userGuid, memberGuid}) {
             })
           })
         }}
+        title="Account numbers"
       />
+    </div>
   );
 }
 

@@ -22,6 +22,8 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
 
   const userId = useRef(null);
 
+  const MAX_USERS = 50
+
   useEffect(() => {
     async function getLatestUser() {
       const requestOptions = {
@@ -148,8 +150,8 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
               }
             }
             }
-              variant="primary" disabled={latestUsers.length >= 5}>
-              Make a one-time transfer
+              variant="primary" disabled={latestUsers.length >= MAX_USERS}>
+              Get account numbers for a one-time transfer
               <ChevronRight
                 color="currentColor"
                 height={12}
@@ -165,7 +167,7 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
               <div>
                 <div className='flex-align flex-center mt-48 mb-8'>
                   <Text as="ParagraphSmall" color="primary" tag="h3">
-                    {`Previously Created Users (${latestUsers.length} of 5)`}
+                    {`Previously Created Users (${latestUsers.length} of ${MAX_USERS})`}
                   </Text>
                 </div>
                 <Table className='guid-table mb-48' >
