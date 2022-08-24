@@ -182,18 +182,6 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
                           <td>
                             {user.guid}
                           </td>
-                          <td className='align-right'>
-                            <div onClick={() => deleteUser(user.guid)} className='btn'>
-                              <Trash
-                                color="#DF320C"
-                                height={16}
-                                style={{
-                                  marginLeft: 8
-                                }}
-                                width={16}
-                              />
-                            </div>
-                          </td>
                         </tr>
                       );
                     })}
