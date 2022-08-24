@@ -59,17 +59,16 @@ The repository is already configured with a client id & api key for this worksho
 
 When you run the app, you'll need to provide a username to initiate the verification flow. An AwesomeMoney user will be created for you with that id.
 
-Use `betty.[yourfirstname]` as the username. This username MUST be unique.
-You can delete this user and recreate it with each exercise. OR you can come up with a unique name of your own.
+Use `yourfirstname.yourlastname` (or another unique alias) as the username. This username MUST be unique. Once you create a user you can select that user again for subsequent flows OR create a new user.
 
 During the verification flow, you'll need to search for an institution then enter credentials. Use the values below.
 
-Use the values below:
-|     | Institution | Username | Password |
-| --- | ----------- | -------- | -------- |
-| Exercise 1 | MX Bank | your-first-name.your-last-name | Pa$$word |
-| Exercise 2 | MX Bank | talk to Sunita or Candice | challenge |
-| Exercise 3 (_coming soon_)|  |  |  | 
+Use these passwords to simulate different error conditions:
+- `SERVER_ERROR`
+- `BAD_REQUEST`
+- `UNAUTHORIZED`
+
+See our [testing guide](https://docs.mx.com/testing/guides/testing) for more scenarios (MFA challenges, additional errors)
 
 ## References
 https://docs.mx.com/testing/guides/testing
