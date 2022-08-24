@@ -19,8 +19,10 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
   })
   const [isLoading, setIsLoading] = useState(false);
   const [latestUsers, setLatestUsers] = useState([]);
+  const [userId, setUserId] = useState(null)
+  const [localUserGuid, setLocalUserGuid] = useState(null)
 
-  const userId = useRef(null);
+  const userIdRef = useRef(null);
 
   const MAX_USERS = 50
 
@@ -91,20 +93,22 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
     return true
   }
 
-  const loadWidget = async (userGuid) => {
+  const loadWidget = async (user_guid) => {
     setIsLoading(true);
 
     let body = {}
 
-    if (userGuid) {
+    if (user_guid) {
       body = {
-        user_guid: userGuid,
+        user_guid: user_guid,
       }
+      setLocalUserGuid(user_guid)
     }
     else {
       body = {
-        user_id: userId.current.value,
+        user_id: userIdRef.current.value,
       }
+      setUserId(userIdRef.current.value)
     }
 
     const requestOptions = {
@@ -123,6 +127,8 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
       .then((res) => {
         setErrorMessage(null);
         setConnectWidgetUrl(res?.widget_url?.url)
+        setUserId(res?.widget_url?.user_id)
+        setLocalUserGuid(res?.user_guid)
         console.log('Getting connect widget URL', res?.widget_url?.url);
         console.log(res)
       })
@@ -149,14 +155,14 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
         <div>
           <Header />
           <div className='flex-align-column'>
-            <TextInput id="userid" label="Username" name="userid" style={userIdInputStyle} ref={userId}
+            <TextInput id="userid" label="Username" name="userid" style={userIdInputStyle} ref={userIdRef}
               errorText={inputError.message}
               showErrorIcon={inputError.hasError}
               onChange={(e) => { checkUsername(e.target.value.trim()) }}
 
             />
             <Button onClick={(e) => {
-              if (checkUsername(userId.current.value.trim())) {
+              if (checkUsername(userIdRef.current.value.trim())) {
                 loadWidget()
               }
             }
@@ -210,11 +216,19 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
       )}
       {connectWidgetUrl && (
         <div>
-          <Table className='guid-table mt-48 mb-48' >
+          <Table className='guid-table mt-48 mb-24' >
             <tbody>
               <tr>
                 <td>
-                  Test Bank
+                  User
+                </td>
+                <td>
+                  {userId} ({localUserGuid})
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Test Banks
                 </td>
                 <td>
                   MX Bank, MX Bank (OAuth)
@@ -222,7 +236,7 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
               </tr>
               <tr>
                 <td>
-                  Username
+                  MX Bank Username
                 </td>
                 <td>
                   mxuser
@@ -230,7 +244,7 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
               </tr>
               <tr>
                 <td>
-                  password
+                  MX Bank Password(s)
                 </td>
                 <td>
                   correct, challenge, options, image, <a href="https://docs.mx.com/api/guides/testing#test_credentials" target="_blank" rel="noreferrer">see docs for more scenarios</a>

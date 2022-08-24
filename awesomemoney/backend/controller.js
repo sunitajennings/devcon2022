@@ -75,6 +75,7 @@ app.post('/api/get_mxconnect_widget_url', async function (request, response) {
     }
 
     const widgetResponse = await client.requestWidgetURL(userGuid, widgetRequestBody)
+    widgetResponse.data.user_guid = userGuid
     response.json(widgetResponse.data)
   } catch (e) {
     logAndReturnApiError("requestWidgetURL", e, response)
