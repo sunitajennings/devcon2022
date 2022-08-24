@@ -55,7 +55,7 @@ npm start
 ```
 The repository is already configured with a client id & api key for this workshop. We will provide new users for each of you.
 
-> (The client id and user data will be deactivated shortly after this session. If you wish to explore these exercises after the session, see [this link](http://placeholder) for instructions.
+> (The client id and user data will be deactivated shortly after this session. If you wish to explore these exercises after the session, see [this link](./byosecrets.md) for instructions.
 
 When you run the app, you'll need to provide a username to initiate the verification flow. An AwesomeMoney user will be created for you with that id.
 
