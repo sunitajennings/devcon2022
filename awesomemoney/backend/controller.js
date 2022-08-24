@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 app.listen(port, function () {
-  console.log(`mx-quickconnect node backend is listening on port ${port}`)
+  console.log(`awesomemoney api is listening on port ${port}`)
 })
 
 const configuration = new Configuration({

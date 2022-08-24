@@ -1,7 +1,7 @@
 {
-  "name": "quickstart",
+  "name": "awesomemoney",
   "version": "1.0.0",
-  "description": "A simple node backend for the mx-quickstart app",
+  "description": "A simple node backend for the awesomemoney demo app",
   "main": "controller.js",
   "scripts": {
     "start": "nodemon -e js",
