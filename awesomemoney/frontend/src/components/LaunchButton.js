@@ -91,11 +91,22 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
     return true
   }
 
-  const loadWidget = async () => {
+  const loadWidget = async (userGuid) => {
     setIsLoading(true);
-    let body = {
-      user_id: userId.current.value,
+
+    let body = {}
+
+    if (userGuid) {
+      body = {
+        user_guid: userGuid,
+      }
     }
+    else {
+      body = {
+        user_id: userId.current.value,
+      }
+    }
+
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -178,10 +189,14 @@ function LaunchButton({ setUserGuid, setMemberGuid }) {
                         <tr key={user.guid}>
                           <td>{index + 1}</td>
                           <td>
-                            {user.id}
-                          </td>
-                          <td>
-                            {user.guid}
+                            <Button onClick={(e) => {
+                              if (checkUsername(user.guid.trim())) {
+                                loadWidget(user.guid)
+                              }
+                            }}
+                              variant="transparent">
+                              {user.id} ({user.guid})
+                            </Button>
                           </td>
                         </tr>
                       );
